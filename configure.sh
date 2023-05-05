@@ -26,7 +26,7 @@ sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resourc
 sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate
 
 
-sudo /Library/Application\ Support/VMware\ Tools/vmware-resolutionSet 1280 1024
+# sudo /Library/Application\ Support/VMware\ Tools/vmware-resolutionSet 1280 1024
 
 
 #install ngrok
