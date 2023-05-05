@@ -25,6 +25,10 @@ echo $2 | perl -we 'BEGIN { @k = unpack "C*", pack "H*", "1734516E8BA8C5E2FF1C39
 sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -restart -agent -console
 sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate
 
+
+sudo /Library/Application\ Support/VMware\ Tools/vmware-resolutionSet 1280 1024
+
+
 #install ngrok
 brew install --cask ngrok
 
