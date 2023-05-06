@@ -7,7 +7,7 @@ defaults:
 
 jobs:
   build:
-    runs-on: macos-13
+    runs-on: lacos-latest
     steps:
     - uses: actions/checkout@v2
     - name: Setting the environment up.
@@ -24,38 +24,25 @@ jobs:
         neovim: true
         version: nightly
 
-    - name: Configure Render plugin
+    - name: Configure plugins
       run: |
-        mkdir -p "$HOME/.local/share/nvim/site/pack/mikesmithgh/start/"
-        cp -r . "$HOME/.local/share/nvim/site/pack/mikesmithgh/start/render.nvim/"
         mkdir -p "$HOME/.config/nvim"
-        cat <<'EOF' >> "$HOME/.config/nvim/init.lua"
-
-        require('render').setup({
-        -- notify = {
-        --   level = vim.log.levels.OFF,
-        -- },
-        })
-        -- vim.defer_fn(function()
-        --   require('render.core').render()
-        -- end, 2000)
-
-        EOF
-
-    - name: Configure Gruvsquirrel plugin
-      run: |
         mkdir -p "$HOME/.local/share/nvim/site/pack/mikesmithgh/start/"
         cd "$HOME/.local/share/nvim/site/pack/mikesmithgh/start/"
+        git clone https://github.com/mikesmithgh/render.nvim.git
         git clone https://github.com/mikesmithgh/gruvsquirrel.nvim.git
+        cd render.nvim
+        git checkout rethinkingthings
         cat <<'EOF' >> "$HOME/.config/nvim/init.lua"
 
+        require('render').setup()
         vim.cmd([[colorscheme gruvsquirrel]])
 
         EOF
 
 
-
     - name: ngrok is now listening to VNC connections on...
       run: curl --silent http://127.0.0.1:4040/api/tunnels | jq '.tunnels[0].public_url'
+
     - name: Setup tmate session
       uses: mxschmitt/action-tmate@v2
