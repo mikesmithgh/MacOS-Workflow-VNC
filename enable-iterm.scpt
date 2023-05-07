@@ -1,3 +1,4 @@
+#!/usr/bin/osascript
 do shell script "open -b com.apple.systempreferences " & ¬
     "/System/Library/PreferencePanes/Security.prefPane"
 
@@ -47,4 +48,7 @@ tell application "System Events"
   end tell
 end tell
 
+
+tell application "System Settings" to quit
+tell application "Terminal" to quit
 
