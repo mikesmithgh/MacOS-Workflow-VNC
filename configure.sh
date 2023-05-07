@@ -31,7 +31,7 @@ sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resourc
 
 #install ngrok
 brew install --cask ngrok
-brew install --cask iterm
+brew install --cask iterm2
 
 #configure ngrok and start it
 ngrok authtoken $3
