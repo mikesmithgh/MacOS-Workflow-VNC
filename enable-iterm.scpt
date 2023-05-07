@@ -50,5 +50,11 @@ end tell
 
 
 tell application "System Settings" to quit
-tell application "Terminal" to quit
-
+delay 5
+tell application "Terminal"
+    quit
+    delay 5
+    tell application "System Events"
+        keystroke return
+    end tell
+end tell
