@@ -60,7 +60,11 @@ tell application "System Events"
     end tell
 end tell
 delay 5
-keystroke return
+tell application "System Events"
+    tell process "UserNotificationCenter"
+        click button "OK" of window 1
+    end tell
+end tell
 delay 5
 
 # delay 5
