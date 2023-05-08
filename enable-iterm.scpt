@@ -124,7 +124,8 @@ end tell
 delay 5
 tell application "System Settings" to quit
 
+
 delay 5
-do shell script "pkill -9 -x iTerm2"
+tell application "iTerm2" to quit
 delay 5
-do shell script "(pkill -9 -x Terminal &)"
+do shell script "killall Terminal"
