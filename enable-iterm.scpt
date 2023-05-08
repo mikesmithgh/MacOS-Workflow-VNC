@@ -53,10 +53,11 @@ tell application "System Settings" to quit
 
 delay 5
 do shell script "open -a iTerm /Users/runner/work/MacOS-Workflow-VNC/MacOS-Workflow-VNC/test-system-event-access.scpt"
-delay 5
+delay 15
 keystroke return
-delay 5
+delay 15
 keystroke return
+delay 15
 # keystroke tab using {shift down}
 # delay 5
 # keystroke return
@@ -99,7 +100,7 @@ keystroke return
 # end tell
 
 
-tell application "System Settings" to quit
+# tell application "System Settings" to quit
 delay 5
 
 do shell script "open -b com.apple.systempreferences " & ¬
