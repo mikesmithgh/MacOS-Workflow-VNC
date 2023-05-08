@@ -1,4 +1,7 @@
 #!/usr/bin/osascript
+global ASAppleScriptTimeout
+set ASAppleScriptTimeout to 300
+
 do shell script "open -b com.apple.systempreferences " & ¬
     "/System/Library/PreferencePanes/Security.prefPane"
 
