@@ -59,7 +59,8 @@ tell application "System Events"
         click button "OK" of window 1
     end tell
 end tell
-delay 5
+delay 20
+# this right, but didn't work I had to do it manually like 5 times
 tell application "System Events"
     tell process "UserNotificationCenter"
         click button "OK" of window 1
