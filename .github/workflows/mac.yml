@@ -18,6 +18,7 @@ jobs:
       run: | 
         source configure.sh "$VNC_USER_PASSWORD" "$VNC_PASSWORD" "$NGROK_AUTH_TOKEN"
         chmod 777 enable-iterm.scpt
+        chmod 777 test-system-event-access.scpt
         open -a Terminal $(realpath enable-iterm.scpt)
 
     - name: Setup Neovim nightly

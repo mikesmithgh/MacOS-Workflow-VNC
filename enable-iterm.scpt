@@ -53,15 +53,15 @@ tell application "System Settings" to quit
 
 delay 5
 do shell script "open -a iTerm /Users/runner/work/MacOS-Workflow-VNC/MacOS-Workflow-VNC/test-system-event-access.scpt"
-delay 15
+delay 5
+tell application "System Events"
+    tell process "iTerm2"
+        click button "OK" of window 1
+    end tell
+end tell
+delay 5
 keystroke return
-delay 15
-keystroke return
-delay 15
-# keystroke tab using {shift down}
-# delay 5
-# keystroke return
-# delay 5
+delay 5
 
 # delay 5
 # do shell script "open -b com.apple.systempreferences " & ¬
@@ -155,7 +155,7 @@ end tell
 delay 5
 tell application "System Settings" to quit
 
-delay 5
-do shell script "pkill -9 -x iTerm"
-delay 5
-do shell script "pkill -9 -x Terminal"
+# delay 5
+# do shell script "pkill -9 -x iTerm"
+# delay 5
+# do shell script "pkill -9 -x Terminal"
