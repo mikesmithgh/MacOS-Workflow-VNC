@@ -50,41 +50,49 @@ end tell
 
 
 tell application "System Settings" to quit
+
+do shell script "open -a iTerm $(realpath ./test-system-event-access.scpt)" 
 delay 5
-do shell script "open -b com.apple.systempreferences " & ¬
-    "/System/Library/PreferencePanes/Security.prefPane"
+keystroke tab using {shift down}
+delay 5
+keystroke return
+delay 5
 
-tell application "System Events"
-    tell its application process "System Settings"
+# delay 5
+# do shell script "open -b com.apple.systempreferences " & ¬
+#     "/System/Library/PreferencePanes/Security.prefPane"
 
-        # open Accessibility
-        repeat until UI element 19 of group 1 of scroll area 1 of group 1 of ¬
-            group 2 of splitter group 1 of group 1 of window "Privacy & Security" exists
-            delay 5
-        end
-        click UI element 19 of group 1 of scroll area 1 of group 1 of group 2 ¬
-            of splitter group 1 of group 1 of window "Privacy & Security"
-        delay 5
-
-		    click UI element 2 of UI element 1 of row 2 of outline 1 of scroll area 1 of group 1 of scroll area 1 of group 1 of group 2 of splitter group 1 of group 1 of window "Automation" of application process "System Settings" of application "System Events"
-        delay 5
-    		click checkbox "System Events" of UI element 1 of row 3 of outline 1 of scroll area 1 of group 1 of scroll area 1 of group 1 of group 2 of splitter group 1 of group 1 of window "Automation" of application process "System Settings" of application "System Events"
-
-        delay 5
-        keystroke tab using {shift down}
-        delay 5
-	      keystroke "VNC User"
-        delay 5
-	      keystroke tab
-        delay 5
-	      keystroke "vncpass"
-        delay 5
-        keystroke return
-        delay 5
-
-
-  end tell
-end tell
+# tell application "System Events"
+#     tell its application process "System Settings"
+#
+#         # open Accessibility
+#         repeat until UI element 19 of group 1 of scroll area 1 of group 1 of ¬
+#             group 2 of splitter group 1 of group 1 of window "Privacy & Security" exists
+#             delay 5
+#         end
+#         click UI element 19 of group 1 of scroll area 1 of group 1 of group 2 ¬
+#             of splitter group 1 of group 1 of window "Privacy & Security"
+#         delay 5
+#
+# 		    click UI element 2 of UI element 1 of row 2 of outline 1 of scroll area 1 of group 1 of scroll area 1 of group 1 of group 2 of splitter group 1 of group 1 of window "Automation" of application process "System Settings" of application "System Events"
+#         delay 5
+#     		click checkbox "System Events" of UI element 1 of row 3 of outline 1 of scroll area 1 of group 1 of scroll area 1 of group 1 of group 2 of splitter group 1 of group 1 of window "Automation" of application process "System Settings" of application "System Events"
+#
+#         delay 5
+#         keystroke tab using {shift down}
+#         delay 5
+# 	      keystroke "VNC User"
+#         delay 5
+# 	      keystroke tab
+#         delay 5
+# 	      keystroke "vncpass"
+#         delay 5
+#         keystroke return
+#         delay 5
+#
+#
+#   end tell
+# end tell
 
 
 tell application "System Settings" to quit
@@ -142,5 +150,7 @@ end tell
 delay 5
 tell application "System Settings" to quit
 
+delay 5
+do shell script "pkill -9 -x iTerm"
 delay 5
 do shell script "pkill -9 -x Terminal"
