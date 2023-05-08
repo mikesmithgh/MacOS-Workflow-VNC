@@ -121,11 +121,28 @@ tell application "System Events"
   end tell
 end tell
 
+
+-- close all notifications
+delay 5
+tell application "System Events"
+	repeat while exists group 1 of UI element 1 of scroll area 1 of group 1 of window "Notification Center" of application process "NotificationCenter" of application "System Events"
+		click group 1 of UI element 1 of scroll area 1 of group 1 of window "Notification Center" of application process "NotificationCenter" of application "System Events"
+		delay 5
+	end repeat
+end tell
+
+-- minimize all applications
+delay 5
+tell application "System Events"
+	set visible of every process whose visible is true and frontmost is false to false
+	key code 103 -- show desktop
+end tell
+
 delay 5
 tell application "System Settings" to quit
 
-
 delay 5
 tell application "iTerm2" to quit
+
 delay 5
 do shell script "killall Terminal"
